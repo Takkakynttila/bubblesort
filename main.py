@@ -15,14 +15,18 @@ def main():
     numbers_list = [rd.randint(0,1000) for i in range(0, int(amount_of_numbers))]
     print(numbers_list)
 
+    fig = plt.figure()
+    ax = fig.add_subplot(1,1,1)
+
     counter = 0
     for i in range(len(numbers_list)):
         for j in range(0, len(numbers_list)-i-1):
             counter +=1
             if numbers_list[j] > numbers_list[j+1]:
                 numbers_list = swap(j, numbers_list)
-                plt.plot(numbers_list)
-                plt.pause(0.05)
+                ax.clear()
+                ax.plot(numbers_list)
+                plt.pause(0.005)
 
     plt.show()
     print(numbers_list)
